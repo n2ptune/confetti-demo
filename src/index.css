@@ -1,0 +1,115 @@
+html,
+body {
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+    'Malgun Gothic', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+.confetti {
+  width: 100%;
+  margin-top: 10rem;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.confetti header {
+  text-align: center;
+  line-height: 0.3;
+}
+
+.confetti header h2 {
+  font-size: 3.3rem;
+  font-weight: 600;
+}
+
+.confetti main {
+  margin: 1rem 0;
+}
+
+.confetti main p {
+  color: rgba(0, 0, 0, 0.35);
+  font-size: 1.25rem;
+}
+
+.confetti-container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@keyframes confetti-low {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+  }
+  100% {
+    transform: translate3d(var(--transform-low), 105vh, 0)
+      rotateX(var(--rotate-x-low)) rotateY(var(--rotate-y-low));
+  }
+}
+
+@keyframes confetti-medium {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+  }
+  100% {
+    transform: translate3d(var(--transform-medium), 105vh, 0)
+      rotateX(var(--rotate-x-medium)) rotateY(var(--rotate-y-medium));
+  }
+}
+
+@keyframes confetti-high {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+  }
+  100% {
+    transform: translate3d(var(--transform-high), 105vh, 0)
+      rotateX(var(--rotate-x-high)) rotateY(var(--rotate-y-high));
+  }
+}
+
+.confetti-container-inner .confetti-item {
+  position: absolute;
+  top: -10px;
+  z-index: 1;
+}
+
+.confetti-container-inner .confetti-item.low {
+  animation: confetti-low 2.9s linear 1 forwards;
+}
+
+.confetti-container-inner .confetti-item.medium {
+  animation: confetti-medium 2.2s linear 1 forwards;
+}
+
+.confetti-container-inner .confetti-item.high {
+  animation: confetti-high 1.7s linear 1 forwards;
+}
+
+.confetti-container-inner .confetti-item.circle {
+  border-radius: 9999px;
+}
+
+:root {
+  --transform-low: 70px;
+  --transform-medium: 200px;
+  --transform-high: -100px;
+
+  --rotate-x-low: 120deg;
+  --rotate-x-medium: 360deg;
+  --rotate-x-high: -250deg;
+
+  --rotate-y-low: 999deg;
+  --rotate-y-medium: 360deg;
+  --rotate-y-high: 270deg;
+}
